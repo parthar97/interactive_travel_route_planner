@@ -1,0 +1,7 @@
+streamlit==0.86.0
+plotly==5.3.1
+geopy==2.2.0
+openrouteservice==2.3.0
+st-searchbox==0.0.6
+pyarrow==5.0.0
+pandas
