@@ -3,7 +3,4 @@ plotly
 geopy
 openrouteservice
 streamlit-searchbox
-pyarrow
 pandas
-math
-requests
