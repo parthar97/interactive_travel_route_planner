@@ -1,6 +1,6 @@
-## Travel Route Planner
+## Interactive Travel Route Planner
 
-The Travel Route Planner is a Streamlit application that helps users optimize their travel routes based on distance. It allows users to enter a list of locations and then calculates the optimal route using the Simulated Annealing algorithm. The application provides detailed information about the route, including optimal route and distance.
+The Interactive Travel Route Planner is a Streamlit application that helps users optimize their travel routes based on distance. It allows users to enter a list of locations and then calculates the optimal route using the Simulated Annealing algorithm. The application provides detailed information about the route, including optimal route and distance.
 
 ### Features
 
