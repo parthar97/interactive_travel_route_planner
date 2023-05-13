@@ -1,18 +1,8 @@
 import re
 import pandas as pd
-from docplex.mp.model import Model
 import streamlit as st
-import folium
-from streamlit_folium import folium_static
-from folium.plugins import MarkerCluster
-# import geopy
-# from geopy.geocoders import Photon
-# from geopy.distance import great_circle
-# from geopy.distance import geodesic
 from geopy.distance import distance as geo_distance
-from folium.map import Popup
 import pyarrow
-from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 import openrouteservice
 from streamlit_searchbox import st_searchbox
 import requests
@@ -20,8 +10,6 @@ import random
 import math
 import base64
 import plotly.graph_objects as go
-
-# geolocator = Photon()
 
 def is_coordinate(input_string):
     coordinate_pattern = r'^-?\d+(\.\d+)?\s+-?\d+(\.\d+)?$'
@@ -40,7 +28,7 @@ def midpoint_coordinates(coords):
         return None
 
 def display_route(location_route, x, locations, loc_df, distance_matrix):
-    api_key = "5b3ce3597851110001cf6248bcfea1e8c735452aa6fdc3f0421b021f"  
+    api_key = st.secrets['ORS_API_KEY']  
     client = openrouteservice.Client(key=api_key)
     num_locations = len(locations)
     route = [0]
@@ -211,7 +199,7 @@ def parse_locations_input(locations_input, geolocator):
 @st.cache_data
 def compute_distance_matrix(locations):
     # use openrouteservice distance for more accurate roadroute distance (but high compute time)
-#     api_key = "5b3ce3597851110001cf6248bcfea1e8c735452aa6fdc3f0421b021f"  # Replace this with your actual API key
+#     api_key = "API_KEY"  # Replace this with your actual API key
 #     client = openrouteservice.Client(key=api_key)
 
 #     num_locations = len(locations)
@@ -255,7 +243,7 @@ def create_data_model(locations):
 
 def autocomplete_placenames(word):    
     import requests
-    api_key = 'AIzaSyBaRNhCvBt5klx7FmZXAaebwAhm34fm6zA'
+    api_key = st.secrets['GMAPS_API_KEY']
     input_text = word # text input for autocomplete
     url = f'https://maps.googleapis.com/maps/api/place/autocomplete/json?input={input_text}&key={api_key}'
     place_ids,place_names=[],[]
@@ -267,10 +255,10 @@ def autocomplete_placenames(word):
     return place_names if word else []
 
 def geocode_address(address):
-    url = 'https://maps.googleapis.com/maps/api/geocode/json'
+    url = 'https://maps.googleapis.com/maps/api/geocode/json' 
     params = {
         'address': address,
-        'key': 'AIzaSyBaRNhCvBt5klx7FmZXAaebwAhm34fm6zA'
+        'key': st.secrets['GMAPS_API_KEY'] 
     }
     response = requests.get(url, params=params)
     if response.status_code == 200:
