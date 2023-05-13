@@ -2,7 +2,7 @@ streamlit
 plotly
 geopy
 openrouteservice
-st-searchbox
+streamlit-searchbox
 pyarrow
 pandas
 base64
