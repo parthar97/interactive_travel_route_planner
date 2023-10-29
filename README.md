@@ -1,44 +1,45 @@
-## Interactive Travel Route Planner
+Interactive Travel Route Planner
+Interactive Travel Route Planner is a Python-based web application built with Streamlit, designed to calculate the optimal travel route between multiple locations. It utilizes various libraries such as Pandas for data manipulation, Geopy for calculating geographical distances, and Docplex for solving the Traveling Salesman Problem.
 
-The Interactive Travel Route Planner is a Streamlit application that helps users optimize their travel routes based on distance. It allows users to enter a list of locations and then calculates the optimal route using the Simulated Annealing algorithm. The application provides detailed information about the route, including optimal route and distance.
+Features
+Interactive User Interface: Built with Streamlit, providing a user-friendly interface.
+Optimal Route Calculation: Solves the Traveling Salesman Problem to find the shortest possible route that visits a given set of locations.
+Geocoding: Converts location names to geographical coordinates.
+Distance Calculation: Calculates geographical distances between locations using Geopy.
+Google Maps Integration: Generates a link to view the optimal route on Google Maps.
+Installation
+To run the application, you need to have Python and Pip installed. If you don’t have Pip installed, you can download it here. Then, you can install the required libraries using the following command:
 
-### Features
+bash
+Copy code
+pip install pandas streamlit docplex geopy requests
+Usage
+To start the application, navigate to the directory containing the script in your terminal, and run:
 
-- Enter a list of locations as input
-- Calculate the optimal route using the Simulated Annealing algorithm
-- Display detailed information about the route, including distance
-- Download the route information as a CSV file
-- Refresh the application to start a new optimization
+bash
+Copy code
+streamlit run script_name.py
+Replace script_name.py with the name of the Python script.
 
-### Installation
-1. Clone the repository: `git clone https://github.com/parthar97/interactive_travel_route_planner.git`
-2. Navigate to the project directory: `cd interactive_travel_route_planner`
-3. Install the required dependencies: `pip install -r requirements.txt`
-4. Run the application: `streamlit run app.py`
+How to Use
+Enter Locations: In the text area provided, enter the locations you wish to visit, each on a new line.
+Calculate Optimal Route: Click the "Calculate Optimal Route" button to calculate the optimal travel route.
+View Results: The optimal route, along with the distances between locations, will be displayed on the screen.
+Google Maps Link: A link to view the optimal route on Google Maps is provided.
+Requirements
+Python 3.6 or higher
+Pandas
+Streamlit
+Docplex
+Geopy
+Requests
+License
+This project is open-sourced and available to all.
 
-### Usage
+Contact
+For any questions or suggestions, please reach out to the creator via LinkedIn.
 
-1. Enter the list of locations or coordinates in the provided text area.
-2. Click the "Add Location" button to add a location to the list.
-3. Click the "Calculate Optimal Route" button to start the optimization process.
-4. View the optimal route on the plotly chart with route distance.
-5. Use the download button to save the route information as a CSV file.
-6. Link to Google Maps with Optimal Route Locations added 
-7. Click the "Refresh" button to reset the application and start a new optimization.
+Acknowledgments
+Created with GPT-4 by Parthasarathy Ramamoorthy (Data Scientist @ Walmart Global Tech).
 
-### Technologies Used
-
-- Python
-- Streamlit: for building the user interface
-- Plotly: for visualizing the route as a table
-- Openrouteservice: for calculating distances and directions between locations
-- Geopy: for geocoding and distance calculations
-- Simulated Annealing algorithm: for solving the Traveling Salesman Problem (TSP)
-
-### Contributions
-
-Contributions to the Travel Route Planner project are welcome. If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.
-
-### License
-
-This project is licensed under the [MIT License](LICENSE).
+Feel free to fork, modify, and use this project for your personal and professional work. Enjoy optimizing your travels!
