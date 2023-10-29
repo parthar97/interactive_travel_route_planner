@@ -1,6 +1,5 @@
 import re
 import pandas as pd
-from docplex.mp.model import Model
 import streamlit as st
 from geopy.distance import distance as geo_distance
 from geopy.distance import geodesic
