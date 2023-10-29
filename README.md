@@ -1,9 +1,8 @@
 ## Interactive Travel Route Planner
 
-Interactive Travel Route Planner is a Python-based web application built with Streamlit, designed to calculate the optimal travel route between multiple locations. It utilizes various libraries such as Pandas for data manipulation, Geopy for calculating geographical distances, and Docplex for solving the Traveling Salesman Problem.
+Interactive Travel Route Planner is a Python-based web application built with Streamlit, designed to calculate the optimal travel route between multiple locations. It utilizes various libraries such as Pandas for data manipulation, Geopy for calculating geographical distances, and Simulated Annealing for solving the Traveling Salesman Problem.
 
 ### Features
-
 - Interactive User Interface: Built with Streamlit, providing a user-friendly interface.
 - Optimal Route Calculation: Solves the Traveling Salesman Problem to find the shortest possible route that visits a given set of locations.
 - Geocoding: Converts location names to geographical coordinates.
@@ -12,7 +11,7 @@ Interactive Travel Route Planner is a Python-based web application built with St
 
 ### Installation
 To run the application, you need to have Python and Pip installed. If you don’t have Pip installed, you can download it here. Then, you can install the required libraries using the following command:
-##### pip install pandas streamlit docplex geopy requests
+##### pip install pandas streamlit geopy requests
 
 To start the application, navigate to the directory containing the script in your terminal, and run:
 ##### streamlit run script_name.py
@@ -27,7 +26,6 @@ To start the application, navigate to the directory containing the script in you
 Python 3.6 or higher
 Pandas
 Streamlit
-Docplex
 Geopy
 Requests
 
