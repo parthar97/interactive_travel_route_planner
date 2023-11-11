@@ -1,7 +1,6 @@
 import re
 import pandas as pd
 import streamlit as st
-from geopy.distance import distance as geo_distance
 from geopy.distance import geodesic
 import requests
 import random
@@ -54,9 +53,9 @@ def display_route(location_route, x, locations, loc_df, distance_matrix):
     distance_total = int(round(distance_total, 0))
     st.write('\n')
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Optimal Geodesic Distance", '{} km'.format(distance_total))
+    col1.metric("Optimal Geodesic Distance", '{} mi'.format(distance_total*0.621371))
         
-    df = pd.DataFrame(rows, columns=["From", "To", "Distance (km)","Distance (mi)"]).reset_index(drop=True)
+    df = pd.DataFrame(rows, columns=["From", "To", "Distance (km)", "Distance (mi)"]).reset_index(drop=True)
     
     st.dataframe(df)  # display route with distance
     location_route_names.append(initial_loc)
@@ -141,12 +140,12 @@ def tsp_solver(data_model, iterations=1000, temperature=10000, cooling_rate=0.95
 # Caching the distance matrix calculation for better performance
 @st.cache_data
 def compute_distance_matrix(locations):    
-    # using geopy geo_distance for lesser compute time
+    # using geopy geodesic for lesser compute time
     num_locations = len(locations)
     distance_matrix = [[0] * num_locations for i in range(num_locations)]
     for i in range(num_locations):
         for j in range(i, num_locations):
-            distance = geo_distance(locations[i], locations[j]).km
+            distance = geodesic(locations[i], locations[j]).km
             distance_matrix[i][j] = distance
             distance_matrix[j][i] = distance
     return distance_matrix
@@ -156,7 +155,6 @@ def create_data_model(locations):
     num_locations = len(locations)
     data['locations']=locations
     data['num_locations'] = num_locations
-    data['depot'] = 0
     distance_matrix = compute_distance_matrix(locations)
     data['distance_matrix'] = distance_matrix
     return data
