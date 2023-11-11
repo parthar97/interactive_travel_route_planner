@@ -50,10 +50,10 @@ def display_route(location_route, x, locations, loc_df, distance_matrix):
         distance_total += distance
         rows.append((a, b, distance_km_text, distance_mi_text))
 
-    distance_total = int(round(distance_total, 0))
+    distance_total = int(round(distance_total*0.621371, 0))
     st.write('\n')
     col1, col2, col3, col4 = st.columns(4)
-    col1.metric("Optimal Geodesic Distance", '{} mi'.format(distance_total*0.621371))
+    col1.metric("Optimal Geodesic Distance", '{} mi'.format(distance_total))
         
     df = pd.DataFrame(rows, columns=["From", "To", "Distance (km)", "Distance (mi)"]).reset_index(drop=True)
     
